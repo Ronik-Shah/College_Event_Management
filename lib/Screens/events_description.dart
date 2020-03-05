@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import './events_description_about.dart';
+import './events_description_rules.dart';
+import './events_description_prizes.dart';
+
 class EventDescriptionScreen extends StatelessWidget {
   static const routeName = "/EventScreenDescription";
 
@@ -21,7 +25,44 @@ class EventDescriptionScreen extends StatelessWidget {
           ),
           Title(
             color: Colors.black,
-            child: Text("Event Title"),
+            child: Text(
+              "Event Title",
+              style: TextStyle(fontSize: 25),
+            ),
+          ),
+          Flexible(
+            child: DefaultTabController(
+              length: 3,
+              child: Scaffold(
+                appBar: TabBar(
+                  tabs: <Widget>[
+                    Tab(
+                      child: Text(
+                        "Description",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    Tab(
+                      child: Text(
+                        "Rules",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                    Tab(
+                      child: Text(
+                        "Prizes",
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    ),
+                  ],
+                ),
+                body: TabBarView(children: [
+                  EventDescriptionAbout(),
+                  EventDescriptionRules(),
+                  EventDescriptionPrizes(),
+                ]),
+              ),
+            ),
           ),
         ],
       ),

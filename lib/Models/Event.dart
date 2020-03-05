@@ -10,33 +10,11 @@ class Event {
 }
 
 class Events with ChangeNotifier {
-  List<Event> _items = [
-    Event(
-        occuranceDate: DateTime.now(),
-        description: "This is the first Event",
-        title: "First Event",
-        isFavourite: false),
-    Event(
-        occuranceDate: DateTime.now(),
-        description: "This is the second Event",
-        title: "Second Event",
-        isFavourite: false),
-    Event(
-        occuranceDate: DateTime.now(),
-        description: "This is the third Event",
-        title: "Third Event",
-        isFavourite: false),
-    Event(
-        occuranceDate: DateTime.now(),
-        description: "This is the fourth Event",
-        title: "Fourth Event",
-        isFavourite: false),
-    Event(
-        occuranceDate: DateTime.now(),
-        description: "This is the fifth Event",
-        title: "Fifth Event",
-        isFavourite: false),
-  ];
+  List<Event> _items = [];
+
+  // Future<void> fetchAndSetEvents async(
+  // String http = "http://3.15.204.39:8000/api/events";
+  // )
 
   List<Event> get items {
     return [..._items];
