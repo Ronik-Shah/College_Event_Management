@@ -26,7 +26,7 @@ class EventDescriptionScreen extends StatelessWidget {
           Title(
             color: Colors.black,
             child: Text(
-              "Event Title",
+              "Title",
               style: TextStyle(fontSize: 25),
             ),
           ),
@@ -58,7 +58,9 @@ class EventDescriptionScreen extends StatelessWidget {
                 ),
                 body: TabBarView(children: [
                   EventDescriptionAbout(),
-                  EventDescriptionRules(),
+                  EventDescriptionRules(
+                    description: "This is description.",
+                  ),
                   EventDescriptionPrizes(),
                 ]),
               ),

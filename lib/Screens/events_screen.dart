@@ -9,14 +9,22 @@ class EventScreen extends StatelessWidget {
   static const routeName = "/EventScreen";
   @override
   Widget build(BuildContext context) {
+    List<Event> eventList = Provider.of<Events>(context, listen: false).items;
     return Scaffold(
-      appBar: AppBar(title: Text("Events")),
-      body: GridView.builder(
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (ctx, index) => EventScreenItem(index: index),
-        itemCount: 5,
+      appBar: AppBar(
+        title: Text("Events"),
       ),
+      body: (eventList.length == 0)
+          ? Center(
+              child: Text("No events yet..."),
+            )
+          : ListView.builder(
+              itemBuilder: (ctx, i) => EventScreenItem(
+                index: i,
+                event: eventList[i],
+              ),
+              itemCount: eventList.length,
+            ),
     );
   }
 }

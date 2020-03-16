@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../Screens/events_description.dart';
+import '../Models/Event.dart';
 
 class EventScreenItem extends StatefulWidget {
+  final Event event;
   final int index;
-  EventScreenItem({@required this.index});
+  EventScreenItem({@required this.event, @required this.index});
 
   @override
   _EventScreenItemState createState() => _EventScreenItemState();
@@ -40,19 +42,17 @@ class _EventScreenItemState extends State<EventScreenItem> {
               Divider(),
               Align(
                 alignment: Alignment.center,
-                child: Text.rich(
-                  TextSpan(
-                    text: "Event Name",
-                    style: TextStyle(
-                      fontSize: mediaQuery.textScaleFactor * 15,
-                      fontWeight: Theme.of(context)
-                          .bannerTheme
-                          .contentTextStyle
-                          .fontWeight,
-                    ),
+                child: Text(
+                  widget.event.title,
+                  style: TextStyle(
+                    fontSize: mediaQuery.textScaleFactor * 15,
+                    fontWeight: Theme.of(context)
+                        .bannerTheme
+                        .contentTextStyle
+                        .fontWeight,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ],
