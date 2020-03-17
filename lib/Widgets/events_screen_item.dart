@@ -6,8 +6,7 @@ import '../Models/Event.dart';
 
 class EventScreenItem extends StatefulWidget {
   final Event event;
-  final int index;
-  EventScreenItem({@required this.event, @required this.index});
+  EventScreenItem({@required this.event});
 
   @override
   _EventScreenItemState createState() => _EventScreenItemState();
@@ -27,12 +26,12 @@ class _EventScreenItemState extends State<EventScreenItem> {
               onTap: () {
                 Navigator.of(context).pushNamed(
                     EventDescriptionScreen.routeName,
-                    arguments: widget.index);
+                    arguments: widget.event);
               },
               child: Align(
                 alignment: Alignment.topCenter,
                 child: Hero(
-                  tag: "eventScrenItem ${widget.index}",
+                  tag: widget.event.id,
                   child: Container(
                     height: mediaQuery.size.height * 0.2,
                     child: Image.asset(
@@ -57,18 +56,35 @@ class _EventScreenItemState extends State<EventScreenItem> {
                         .fontWeight,
                   ),
                 ),
-                IconButton(
-                  color: Colors.red,
-                  icon: (Provider.of<Events>(context)
-                          .items[widget.index]
-                          .isFavourite)
-                      ? Icon(Icons.favorite)
-                      : Icon(Icons.favorite_border),
-                  onPressed: () {
-                    Provider.of<Events>(context, listen: false)
-                        .changeFavouriteStatus(widget.index);
-                  },
-                ),
+                (widget.event.isFavourite)
+                    ? IconButton(
+                        color: Colors.red,
+                        icon: Icon(Icons.favorite),
+                        onPressed: () {
+                          setState(
+                            () {
+                              Provider.of<Events>(context, listen: false)
+                                  .changeFavouriteStatus(widget.event);
+                              Provider.of<Events>(context, listen: false)
+                                  .addToFavouritedItems(widget.event);
+                            },
+                          );
+                        },
+                      )
+                    : IconButton(
+                        color: Colors.red,
+                        icon: Icon(Icons.favorite_border),
+                        onPressed: () {
+                          setState(
+                            () {
+                              Provider.of<Events>(context, listen: false)
+                                  .changeFavouriteStatus(widget.event);
+                              Provider.of<Events>(context, listen: false)
+                                  .removeFromFavouritedItems(widget.event);
+                            },
+                          );
+                        },
+                      ),
               ],
             ),
           ],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import './events_description_about.dart';
 import './events_description_rules.dart';
@@ -12,9 +11,7 @@ class EventDescriptionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var index = ModalRoute.of(context).settings.arguments as int;
-    var event = Provider.of<Events>(context, listen: false)
-        .returnEventBasedOnIndex(index);
+    var event = ModalRoute.of(context).settings.arguments as Event;
     return Scaffold(
       appBar: AppBar(
         title: Text(event.title),
@@ -24,7 +21,7 @@ class EventDescriptionScreen extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Hero(
-              tag: "eventScrenItem $index",
+              tag: event.id,
               child: Image.asset("assets/Images/eventOfflineImage.jpg"),
             ),
           ),
