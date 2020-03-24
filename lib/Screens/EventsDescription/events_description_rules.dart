@@ -25,12 +25,27 @@ class EventDescriptionRulesListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-        backgroundColor: Colors.blue,
+        backgroundColor:
+            Theme.of(context).floatingActionButtonTheme.backgroundColor,
         child: Text(
           "${index + 1}",
+          style: TextStyle(
+            color: Theme.of(context).textTheme.button.color,
+            fontSize: Theme.of(context).textTheme.button.fontSize,
+            fontFamily: Theme.of(context).textTheme.button.fontFamily,
+            fontWeight: Theme.of(context).textTheme.button.fontWeight,
+          ),
         ),
       ),
-      title: Text(rule),
+      title: Text(
+        rule,
+        style: TextStyle(
+          color: Theme.of(context).textTheme.body2.color,
+          fontSize: Theme.of(context).textTheme.body2.fontSize,
+          fontFamily: Theme.of(context).textTheme.body2.fontFamily,
+          fontWeight: Theme.of(context).textTheme.body2.fontWeight,
+        ),
+      ),
     );
   }
 }

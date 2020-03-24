@@ -15,6 +15,7 @@ class _EventScreenState extends State<EventScreen> {
   List<Event> favouritedList = [];
   List<Event> eventList = [];
   bool favouriteMode = false;
+
   void buildFavouritedList() {
     favouritedList.clear();
     for (var event in eventList) {
@@ -26,6 +27,11 @@ class _EventScreenState extends State<EventScreen> {
   Widget build(BuildContext context) {
     eventList = Provider.of<Events>(context, listen: false).items;
     return Scaffold(
+      drawer: Drawer(
+        child: Container(
+          color: Theme.of(context).scaffoldBackgroundColor,
+        ),
+      ),
       appBar: AppBar(
         title: Text("Events"),
         actions: <Widget>[
@@ -34,6 +40,7 @@ class _EventScreenState extends State<EventScreen> {
                 ? Icon(Icons.filter_1)
                 : Icon(Icons.filter_list),
             tooltip: "Show only favourites",
+            color: Theme.of(context).appBarTheme.actionsIconTheme.color,
             onPressed: () {
               setState(
                 () {

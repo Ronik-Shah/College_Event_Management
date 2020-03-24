@@ -19,7 +19,6 @@ class _EventScreenItemState extends State<EventScreenItem> {
     return ClipRRect(
       clipBehavior: Clip.antiAlias,
       child: Card(
-        elevation: 5,
         child: Column(
           children: <Widget>[
             GestureDetector(
@@ -28,32 +27,29 @@ class _EventScreenItemState extends State<EventScreenItem> {
                     EventDescriptionScreen.routeName,
                     arguments: widget.event);
               },
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: Hero(
-                  tag: widget.event.id,
-                  child: Container(
-                    height: mediaQuery.size.height * 0.2,
-                    child: Image.asset(
-                      "assets/Images/eventOfflineImage.jpg",
-                      fit: BoxFit.cover,
-                    ),
+              child: Hero(
+                tag: widget.event.id,
+                child: Container(
+                  width: double.infinity,
+                  height: mediaQuery.size.height * 0.2,
+                  child: Image.asset(
+                    "assets/Images/images.jfif",
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
             ),
             Divider(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
                   widget.event.title,
                   style: TextStyle(
-                    fontSize: mediaQuery.textScaleFactor * 25,
-                    fontWeight: Theme.of(context)
-                        .bannerTheme
-                        .contentTextStyle
-                        .fontWeight,
+                    color: Theme.of(context).textTheme.title.color,
+                    fontFamily: Theme.of(context).textTheme.title.fontFamily,
+                    fontWeight: Theme.of(context).textTheme.title.fontWeight,
+                    fontSize: Theme.of(context).textTheme.title.fontSize,
                   ),
                 ),
                 (widget.event.isFavourite)

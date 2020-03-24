@@ -34,10 +34,27 @@ class EventDescriptionPrizesListItem extends StatelessWidget {
       indexString = "${index + 1}ᵗʰ";
     return ListTile(
       leading: CircleAvatar(
-        backgroundColor: Colors.blue,
-        child: Text(indexString),
+        backgroundColor:
+            Theme.of(context).floatingActionButtonTheme.backgroundColor,
+        child: Text(
+          indexString,
+          style: TextStyle(
+            color: Theme.of(context).textTheme.button.color,
+            fontSize: Theme.of(context).textTheme.button.fontSize,
+            fontFamily: Theme.of(context).textTheme.button.fontFamily,
+            fontWeight: Theme.of(context).textTheme.button.fontWeight,
+          ),
+        ),
       ),
-      title: Text(prize),
+      title: Text(
+        prize,
+        style: TextStyle(
+          color: Theme.of(context).textTheme.body2.color,
+          fontSize: Theme.of(context).textTheme.body2.fontSize,
+          fontFamily: Theme.of(context).textTheme.body2.fontFamily,
+          fontWeight: Theme.of(context).textTheme.body2.fontWeight,
+        ),
+      ),
     );
   }
 }

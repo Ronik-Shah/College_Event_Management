@@ -17,12 +17,72 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          appBarTheme: AppBarTheme(),
-          bannerTheme: MaterialBannerThemeData(
-            contentTextStyle: TextStyle(
-              fontWeight: FontWeight.bold,
+          scaffoldBackgroundColor: Color.fromRGBO(33, 33, 33, 1),
+          dividerColor: Colors.white30,
+          indicatorColor: Color.fromRGBO(245, 245, 245, 1),
+          appBarTheme: AppBarTheme(
+            color: Color.fromRGBO(66, 66, 66, 1),
+            actionsIconTheme: IconThemeData(
+              color: Color.fromRGBO(245, 245, 245, 1),
             ),
+            textTheme: TextTheme(
+              title: TextStyle(
+                color: Color.fromRGBO(245, 245, 245, 1),
+                fontFamily: "Ubuntu",
+                fontSize: 34,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+          cardTheme: CardTheme(
+            color: Color.fromRGBO(97, 97, 97, 1),
+            clipBehavior: Clip.antiAlias,
+            margin: const EdgeInsets.all(5),
+          ),
+          textTheme: TextTheme(
+            title: TextStyle(
+              color: Color.fromRGBO(250, 250, 250, 1),
+              fontFamily: "Playfair_Display",
+              fontSize: 20,
+              fontWeight: FontWeight.w300,
+            ),
+            body1: TextStyle(
+              color: Color.fromRGBO(250, 250, 250, 1),
+              fontFamily: "Playfair_Display",
+              fontSize: 18,
+              fontWeight: FontWeight.w200,
+            ),
+            body2: TextStyle(
+              color: Color.fromRGBO(250, 250, 250, 1),
+              fontFamily: "Playfair_Display",
+              fontSize: 18,
+              fontWeight: FontWeight.w300,
+            ),
+            button: TextStyle(
+              color: Color.fromRGBO(245, 245, 245, 1),
+              fontFamily: "Ubuntu",
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+            subtitle: TextStyle(
+              color: Color.fromRGBO(245, 245, 245, 1),
+              fontFamily: "Ubuntu",
+              fontSize: 18,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          tabBarTheme: TabBarTheme(
+            labelColor: Color.fromRGBO(245, 245, 245, 1),
+            labelStyle: TextStyle(
+              color: Color.fromRGBO(245, 245, 245, 1),
+              fontFamily: "Ubuntu",
+              fontSize: 19,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Color.fromRGBO(255, 160, 0, 1),
+            splashColor: Color.fromARGB(0, 95, 255, 1),
           ),
         ),
         home: EventScreen(),

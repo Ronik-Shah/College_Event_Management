@@ -22,7 +22,14 @@ class EventDescriptionScreen extends StatelessWidget {
             alignment: Alignment.center,
             child: Hero(
               tag: event.id,
-              child: Image.asset("assets/Images/eventOfflineImage.jpg"),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.3,
+                width: double.infinity,
+                child: Image.asset(
+                  "assets/Images/images.jfif",
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ),
           Flexible(
@@ -30,23 +37,21 @@ class EventDescriptionScreen extends StatelessWidget {
               length: 3,
               child: Scaffold(
                 appBar: TabBar(
+                  indicatorColor: Theme.of(context).indicatorColor,
                   tabs: <Widget>[
                     Tab(
                       child: Text(
                         "Description",
-                        style: TextStyle(color: Colors.black),
                       ),
                     ),
                     Tab(
                       child: Text(
                         "Rules",
-                        style: TextStyle(color: Colors.black),
                       ),
                     ),
                     Tab(
                       child: Text(
                         "Prizes",
-                        style: TextStyle(color: Colors.black),
                       ),
                     ),
                   ],

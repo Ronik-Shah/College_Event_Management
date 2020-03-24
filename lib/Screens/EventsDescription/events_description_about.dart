@@ -7,7 +7,7 @@ class EventDescriptionAbout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.all(8),
+        margin: Theme.of(context).cardTheme.margin,
         child: Text(
           about,
           softWrap: true,
