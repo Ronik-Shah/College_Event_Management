@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: Color.fromRGBO(33, 33, 33, 1),
           dividerColor: Colors.white30,
           indicatorColor: Color.fromRGBO(245, 245, 245, 1),
+          splashColor: Colors.white,
           appBarTheme: AppBarTheme(
             color: Color.fromRGBO(66, 66, 66, 1),
             actionsIconTheme: IconThemeData(
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
             body2: TextStyle(
               color: Color.fromRGBO(250, 250, 250, 1),
               fontFamily: "Playfair_Display",
-              fontSize: 18,
+              fontSize: 20,
               fontWeight: FontWeight.w300,
             ),
             button: TextStyle(
@@ -70,6 +71,18 @@ class MyApp extends StatelessWidget {
               fontSize: 18,
               fontWeight: FontWeight.w300,
             ),
+            subhead: TextStyle(
+              color: Color.fromRGBO(245, 245, 245, 1),
+              fontFamily: "Playfair_Display",
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+            display1: TextStyle(
+              color: Color.fromRGBO(245, 245, 245, 1),
+              fontFamily: "Ubuntu",
+              fontSize: 30,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           tabBarTheme: TabBarTheme(
             labelColor: Color.fromRGBO(245, 245, 245, 1),
@@ -83,6 +96,9 @@ class MyApp extends StatelessWidget {
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: Color.fromRGBO(255, 160, 0, 1),
             splashColor: Color.fromARGB(0, 95, 255, 1),
+          ),
+          iconTheme: IconThemeData(
+            color: Color.fromRGBO(245, 245, 245, 1),
           ),
         ),
         home: EventScreen(),

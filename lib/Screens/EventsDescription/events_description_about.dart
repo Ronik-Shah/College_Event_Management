@@ -6,11 +6,13 @@ class EventDescriptionAbout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: Theme.of(context).cardTheme.margin,
-        child: Text(
-          about,
-          softWrap: true,
+      body: SingleChildScrollView(
+        child: Container(
+          margin: Theme.of(context).cardTheme.margin,
+          child: Text(
+            about,
+            softWrap: true,
+          ),
         ),
       ),
     );

@@ -29,22 +29,11 @@ class EventDescriptionRulesListItem extends StatelessWidget {
             Theme.of(context).floatingActionButtonTheme.backgroundColor,
         child: Text(
           "${index + 1}",
-          style: TextStyle(
-            color: Theme.of(context).textTheme.button.color,
-            fontSize: Theme.of(context).textTheme.button.fontSize,
-            fontFamily: Theme.of(context).textTheme.button.fontFamily,
-            fontWeight: Theme.of(context).textTheme.button.fontWeight,
-          ),
+          style: Theme.of(context).textTheme.button,
         ),
       ),
       title: Text(
         rule,
-        style: TextStyle(
-          color: Theme.of(context).textTheme.body2.color,
-          fontSize: Theme.of(context).textTheme.body2.fontSize,
-          fontFamily: Theme.of(context).textTheme.body2.fontFamily,
-          fontWeight: Theme.of(context).textTheme.body2.fontWeight,
-        ),
       ),
     );
   }
