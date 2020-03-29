@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 
 import './Screens/EventsDescription/events_description.dart';
 import './Screens/events_screen.dart';
+import './Screens/Dashboard/admin_dashboard.dart';
+import './Screens/Dashboard/admin_dashboard_create_event.dart';
 
 import './Models/Event.dart';
 
@@ -17,10 +19,12 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
+          canvasColor: Color.fromRGBO(33, 33, 33, 1),
           scaffoldBackgroundColor: Color.fromRGBO(33, 33, 33, 1),
           dividerColor: Colors.white30,
           indicatorColor: Color.fromRGBO(245, 245, 245, 1),
           splashColor: Colors.white,
+          cursorColor: Color.fromRGBO(245, 245, 245, 1),
           appBarTheme: AppBarTheme(
             color: Color.fromRGBO(66, 66, 66, 1),
             actionsIconTheme: IconThemeData(
@@ -100,10 +104,55 @@ class MyApp extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Color.fromRGBO(245, 245, 245, 1),
           ),
+          inputDecorationTheme: InputDecorationTheme(
+            fillColor: Color.fromRGBO(0, 0, 0, 1),
+            hintStyle: TextStyle(
+              color: Color.fromRGBO(245, 245, 245, 1),
+              fontFamily: "Ubuntu",
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                style: BorderStyle.solid,
+                color: Color.fromRGBO(245, 245, 245, 1),
+              ),
+            ),
+            disabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                style: BorderStyle.solid,
+                color: Color.fromRGBO(245, 245, 245, 1),
+              ),
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                style: BorderStyle.solid,
+                color: Color.fromRGBO(245, 245, 245, 1),
+              ),
+            ),
+            labelStyle: TextStyle(
+              color: Color.fromRGBO(00, 145, 234, 1),
+              fontFamily: "Ubuntu",
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+            helperStyle: TextStyle(
+              color: Color.fromRGBO(212, 225, 87, 1),
+              fontFamily: "Playfair_Display",
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          buttonTheme: ButtonThemeData(
+            buttonColor: Color.fromRGBO(245, 245, 245, 1),
+            textTheme: ButtonTextTheme.accent,
+          ),
         ),
         home: EventScreen(),
         routes: {
           EventDescriptionScreen.routeName: (ctx) => EventDescriptionScreen(),
+          AdminDashboard.routeName: (ctx) => AdminDashboard(),
+          CreateEventPage1.routeName: (ctx) => CreateEventPage1(),
         },
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Screens/Dashboard/admin_dashboard.dart';
+
 class AppDrawer extends StatefulWidget {
   @override
   _AppDrawerState createState() => _AppDrawerState();
@@ -9,13 +11,14 @@ class _AppDrawerState extends State<AppDrawer> {
   bool _isEventMenuOpen = false;
 
   Widget buildDrawerItem(IconData icon, String iconText, double initialSpacing,
-      BuildContext context, Function onTapFunction) {
+      BuildContext context, MediaQueryData mediaQuery, Function onTapFunction) {
     return Material(
       color: Theme.of(context).scaffoldBackgroundColor,
       child: InkWell(
         onTap: onTapFunction,
         child: Container(
           width: double.infinity,
+          height: mediaQuery.size.height * 0.05,
           child: Row(
             children: <Widget>[
               SizedBox(width: initialSpacing),
@@ -35,14 +38,21 @@ class _AppDrawerState extends State<AppDrawer> {
     );
   }
 
-  Widget buildDrawerMenu(IconData icon, String iconText, double initialSpacing,
-      BuildContext context, bool checkMenuOpen, Function onTapFunction) {
+  Widget buildDrawerMenu(
+      IconData icon,
+      String iconText,
+      double initialSpacing,
+      BuildContext context,
+      MediaQueryData mediaQuery,
+      bool checkMenuOpen,
+      Function onTapFunction) {
     return Material(
       color: Theme.of(context).scaffoldBackgroundColor,
       child: InkWell(
         onTap: onTapFunction,
         child: Container(
           width: double.infinity,
+          height: mediaQuery.size.height * 0.05,
           child: Row(
             children: <Widget>[
               SizedBox(width: initialSpacing),
@@ -86,9 +96,10 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
           ),
           Divider(),
-          buildDrawerItem(Icons.home, "Home", 20, context, () {}),
+          buildDrawerItem(Icons.home, "Home", 20, context, mediaQuery, () {}),
           SizedBox(height: 5),
-          buildDrawerMenu(Icons.event, "Events", 20, context, _isEventMenuOpen,
+          buildDrawerMenu(
+              Icons.event, "Events", 20, context, mediaQuery, _isEventMenuOpen,
               () {
             setState(() {
               _isEventMenuOpen = !_isEventMenuOpen;
@@ -97,17 +108,24 @@ class _AppDrawerState extends State<AppDrawer> {
           if (_isEventMenuOpen)
             Column(
               children: <Widget>[
-                buildDrawerItem(Icons.photo, "Photography", 80, context, () {}),
-                buildDrawerItem(Icons.music_note, "Music", 80, context, () {}),
-                buildDrawerItem(Icons.code, "Coding", 80, context, () {}),
                 buildDrawerItem(
-                    Icons.directions_run, "Sports", 80, context, () {}),
+                    Icons.photo, "Photography", 80, context, mediaQuery, () {}),
+                buildDrawerItem(
+                    Icons.music_note, "Music", 80, context, mediaQuery, () {}),
+                buildDrawerItem(
+                    Icons.code, "Coding", 80, context, mediaQuery, () {}),
+                buildDrawerItem(Icons.directions_run, "Sports", 80, context,
+                    mediaQuery, () {}),
               ],
             ),
           Divider(),
-          buildDrawerItem(Icons.dashboard, "Dashboard", 20, context, () {}),
+          buildDrawerItem(Icons.dashboard, "Dashboard", 20, context, mediaQuery,
+              () {
+            Navigator.of(context).pushNamed(AdminDashboard.routeName);
+          }),
           Divider(),
-          buildDrawerItem(Icons.exit_to_app, "Logout", 20, context, () {}),
+          buildDrawerItem(
+              Icons.exit_to_app, "Logout", 20, context, mediaQuery, () {}),
           Divider(),
         ],
       ),
