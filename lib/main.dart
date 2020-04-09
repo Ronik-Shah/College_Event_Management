@@ -4,7 +4,8 @@ import 'package:provider/provider.dart';
 import './Screens/EventsDescription/events_description.dart';
 import './Screens/events_screen.dart';
 import './Screens/Dashboard/admin_dashboard.dart';
-import './Screens/Dashboard/admin_dashboard_create_event.dart';
+import './Screens/Dashboard/admin_dashboard_create_event_page_1.dart';
+import './Screens/Dashboard/admin_dashboard_create_event_page_2.dart';
 
 import './Models/Event.dart';
 
@@ -109,7 +110,7 @@ class MyApp extends StatelessWidget {
             hintStyle: TextStyle(
               color: Color.fromRGBO(245, 245, 245, 1),
               fontFamily: "Ubuntu",
-              fontSize: 20,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
             focusedBorder: OutlineInputBorder(
@@ -142,17 +143,46 @@ class MyApp extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.red,
+                style: BorderStyle.solid,
+              ),
+            ),
+            errorStyle: TextStyle(
+              color: Colors.red,
+              fontFamily: "Playfair_Display",
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           buttonTheme: ButtonThemeData(
             buttonColor: Color.fromRGBO(245, 245, 245, 1),
             textTheme: ButtonTextTheme.accent,
           ),
+          dialogTheme: DialogTheme(
+            backgroundColor: Color.fromRGBO(42, 42, 42, 1),
+            titleTextStyle: TextStyle(
+              color: Color.fromRGBO(245, 245, 245, 1),
+              fontFamily: "Ubuntu",
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+            contentTextStyle: TextStyle(
+              color: Color.fromRGBO(250, 250, 250, 1),
+              fontFamily: "Playfair_Display",
+              fontSize: 18,
+              fontWeight: FontWeight.w200,
+            ),
+          ),
         ),
         home: EventScreen(),
         routes: {
+          EventScreen.routeName: (ctx) => EventScreen(),
           EventDescriptionScreen.routeName: (ctx) => EventDescriptionScreen(),
           AdminDashboard.routeName: (ctx) => AdminDashboard(),
           CreateEventPage1.routeName: (ctx) => CreateEventPage1(),
+          CreateEventPage2.routeName: (ctx) => CreateEventPage2(),
         },
       ),
     );

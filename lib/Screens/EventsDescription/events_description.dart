@@ -4,9 +4,9 @@ import './events_description_about.dart';
 import './events_description_rules.dart';
 import './events_description_prizes.dart';
 
-import 'package:college_event_management/Widgets/app_drawer.dart';
+import '../../Widgets/app_drawer.dart';
 
-import 'package:college_event_management/Models/Event.dart';
+import '../../Models/Event.dart';
 
 class EventDescriptionScreen extends StatelessWidget {
   static const routeName = "/EventScreenDescription";
@@ -74,6 +74,8 @@ class EventDescriptionScreen extends StatelessWidget {
                     children: [
                       EventDescriptionAbout(
                         about: event.about,
+                        category: "Sports",
+                        occuranceDate: event.occuranceDate,
                       ),
                       EventDescriptionRules(
                         rules: event.rules,

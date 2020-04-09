@@ -115,4 +115,9 @@ class Events with ChangeNotifier {
   void removeFromFavouritedItems(Event event) {
     favouritedItems.remove(event);
   }
+
+  void addEvent(Event event) {
+    _items.add(event);
+    notifyListeners();
+  }
 }

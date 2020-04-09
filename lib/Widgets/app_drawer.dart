@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Screens/Dashboard/admin_dashboard.dart';
+import '../Screens/events_screen.dart';
 
 class AppDrawer extends StatefulWidget {
   @override
@@ -96,7 +97,9 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
           ),
           Divider(),
-          buildDrawerItem(Icons.home, "Home", 20, context, mediaQuery, () {}),
+          buildDrawerItem(Icons.home, "Home", 20, context, mediaQuery, () {
+            Navigator.of(context).pushReplacementNamed(EventScreen.routeName);
+          }),
           SizedBox(height: 5),
           buildDrawerMenu(
               Icons.event, "Events", 20, context, mediaQuery, _isEventMenuOpen,
@@ -121,7 +124,8 @@ class _AppDrawerState extends State<AppDrawer> {
           Divider(),
           buildDrawerItem(Icons.dashboard, "Dashboard", 20, context, mediaQuery,
               () {
-            Navigator.of(context).pushNamed(AdminDashboard.routeName);
+            Navigator.of(context)
+                .pushReplacementNamed(AdminDashboard.routeName);
           }),
           Divider(),
           buildDrawerItem(
