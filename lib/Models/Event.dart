@@ -5,6 +5,7 @@ class Event {
   String title;
   DateTime occuranceDate;
   String about;
+  String category;
   List<String> rules;
   List<String> prizes;
   bool isFavourite;
@@ -16,6 +17,7 @@ class Event {
     @required this.title,
     @required this.rules,
     @required this.prizes,
+    @required this.category,
     this.isFavourite = false,
   });
 }
@@ -36,6 +38,7 @@ class Events with ChangeNotifier {
         "Organizer's decision is final.",
       ],
       occuranceDate: DateTime(2020, 4, 1),
+      category: "Sports",
     ),
     Event(
       id: "E2",
@@ -51,6 +54,7 @@ class Events with ChangeNotifier {
         "Organizer's decision is final.",
       ],
       occuranceDate: DateTime(2020, 4, 18),
+      category: "Sports",
     ),
     Event(
       id: "E3",
@@ -66,6 +70,7 @@ class Events with ChangeNotifier {
         "Organizer's decision is final.",
       ],
       occuranceDate: DateTime(2020, 3, 15),
+      category: "Music",
     ),
     Event(
       id: "E4",
@@ -81,6 +86,7 @@ class Events with ChangeNotifier {
         "Organizer's decision is final.",
       ],
       occuranceDate: DateTime(2020, 4, 4),
+      category: "Photography",
     ),
   ];
 

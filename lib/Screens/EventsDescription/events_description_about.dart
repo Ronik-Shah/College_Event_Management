@@ -8,6 +8,7 @@ class EventDescriptionAbout extends StatelessWidget {
       {@required this.about,
       @required this.category,
       @required this.occuranceDate});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class EventDescriptionAbout extends StatelessWidget {
                   Text(
                       "Occuring on : ${occuranceDate.day}/${occuranceDate.month}/${occuranceDate.year}"),
                   Text(
-                    "Category : Sports",
+                    "Category : $category",
                   ),
                 ],
               ),

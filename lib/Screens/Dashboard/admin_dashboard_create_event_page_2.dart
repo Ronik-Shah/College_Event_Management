@@ -40,7 +40,7 @@ class _CreateEventPage2State extends State<CreateEventPage2> {
   }
 
   Event createEvent(String name, String description, List<String> rules,
-      List<String> prizes, DateTime dateTime) {
+      List<String> prizes, DateTime dateTime, String category) {
     return Event(
       about: description,
       title: name,
@@ -48,6 +48,7 @@ class _CreateEventPage2State extends State<CreateEventPage2> {
       rules: rules,
       id: "c2",
       occuranceDate: dateTime,
+      category: category,
     );
   }
 
@@ -274,11 +275,13 @@ class _CreateEventPage2State extends State<CreateEventPage2> {
                     var rules = createList(rulesTextEditingControllers);
                     var prizes = createList(prizesTextEditingControllers);
                     Event event = createEvent(
-                        eventObject["name"],
-                        eventObject["description"],
-                        rules,
-                        prizes,
-                        DateTime.parse(eventObject["date"]));
+                      eventObject["name"],
+                      eventObject["description"],
+                      rules,
+                      prizes,
+                      DateTime.parse(eventObject["date"]),
+                      eventObject["category"],
+                    );
                     Provider.of<Events>(context, listen: false).addEvent(event);
                     Navigator.of(context).pushNamed(AdminDashboard.routeName);
                   },

@@ -74,7 +74,7 @@ class EventDescriptionScreen extends StatelessWidget {
                     children: [
                       EventDescriptionAbout(
                         about: event.about,
-                        category: "Sports",
+                        category: event.category,
                         occuranceDate: event.occuranceDate,
                       ),
                       EventDescriptionRules(
